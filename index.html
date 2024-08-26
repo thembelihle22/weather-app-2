@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css " />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <title>weather-app</title>
+  </head>
+  <body>
+    <div class="weatherApp">
+      <section>
+        <h1 id="h1"></h1>
+        <p>
+          <span id="time">Monday, Time:19:00</span>
+        </p>
+        <div class="temperature">
+          <div id="icon">☀️</div>
+          <div id="temp"></div>
+          <div class="celsius">°c</div>
+        </div>
+
+        <div class="conditions">
+          <div class="discription" id="discription">Partly cloudly</div>
+          Humidity: <span id="humidity">60</span>%, Wind:
+          <span id="wind">55 </span>km/hr.
+        </div>
+      </section>
+      <section>
+        <form class="form" id="form-input">
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            class="search"
+            id="search"
+          />
+          <input type="submit" value="Search" class="button" id="submit" />
+        </form>
+      </section>
+    </div>
+
+    <div class="weekDay">
+      <ul class="forecast">
+        <li>
+          Tue
+          <div class="">🌦️</div>
+          <div>19° 12°</div>
+        </li>
+        <li>
+          Wed
+          <div class="">🌥️</div>
+          <div>19° 12°</div>
+        </li>
+        <li>
+          Thu
+          <div class="">☀️</div>
+          <div>19° 12°</div>
+        </li>
+        <li>
+          Fri
+          <div class="">🌥️</div>
+          <div>19° 12°</div>
+        </li>
+        <li>
+          Sat
+          <div class="">☀️</div>
+          <div>19° 12°</div>
+        </li>
+        <li>
+          Sun
+          <div class="">☔</div>
+          <div>19° 12°</div>
+        </li>
+      </ul>
+
+      <footer class="footer">
+        By <a href="https://github.com/thembelihle22">Thembelihle</a>, hosted on
+        <a href="https://github.com/thembelihle22/weather-app-1">Github</a>
+        using <a href="https://render.com/">Render</a>.
+      </footer>
+    </div>
+
+    <script src="src/index.js "></script>
+  </body>
+</html>
