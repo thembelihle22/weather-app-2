@@ -1,4 +1,24 @@
-unction currentWeekDay(date) {
+function forecastDisplay() {
+  let forecast = document.querySelector("#forecast");
+
+  let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
+
+  let forecastHTML = "";
+  days.forEach(function (days) {
+    forecastHTML =
+      forecastHTML +
+      `<li>
+          ${days}
+          <div class="weatherIcon">🌦️</div>
+          <div><strong>19</strong>° 12°</div>
+        </li>`;
+
+    forecast.innerHTML = forecastHTML;
+  });
+}
+forecastDisplay();
+
+function currentWeekDay(date) {
   let weekDay = [
     "Sunday",
     "Monday",
