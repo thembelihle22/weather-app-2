@@ -1,23 +1,3 @@
-function forecastDisplay() {
-  let forecast = document.querySelector("#forecast");
-
-  let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
-
-  let forecastHTML = "";
-  days.forEach(function (days) {
-    forecastHTML =
-      forecastHTML +
-      `<li>
-          ${days}
-          <div class="weatherIcon">🌦️</div>
-          <div><strong>19</strong>° 12°</div>
-        </li>`;
-
-    forecast.innerHTML = forecastHTML;
-  });
-}
-forecastDisplay();
-
 function currentWeekDay(date) {
   let weekDay = [
     "Sunday",
@@ -61,12 +41,40 @@ function weatherForecast(response) {
 
   let iconElement = document.querySelector("#icon");
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon">`;
+
+  getForecast(response.data.city);
 }
 
 function cityWeather(city) {
   let apiKey = "59tfe2c834300cb76dbcd14b56oa0baf";
   let api = `https://api.shecodes.io/weather/v1/current?query=${city}}&key=${apiKey}&units=metric`;
   axios.get(api).then(weatherForecast);
+}
+
+function getForecast(city) {
+  let apiKey = "59tfe2c834300cb76dbcd14b56oa0baf";
+  let api = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(api).then(forecastDisplay);
+}
+
+function forecastDisplay(response) {
+  console.log(response.data);
+  let forecast = document.querySelector("#forecast");
+
+  let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
+
+  let forecastHTML = "";
+  days.forEach(function (days) {
+    forecastHTML =
+      forecastHTML +
+      `<li>
+          ${days}
+          <div class="weatherIcon">🌦️</div>
+          <div><strong>19</strong>° 12°</div>
+        </li>`;
+
+    forecast.innerHTML = forecastHTML;
+  });
 }
 
 function citySearchForm(event) {
@@ -79,4 +87,4 @@ function citySearchForm(event) {
 let search = document.querySelector("#form-input");
 search.addEventListener("submit", citySearchForm);
 
-cityWeather(Durban);
+cityWeather("Durban");
